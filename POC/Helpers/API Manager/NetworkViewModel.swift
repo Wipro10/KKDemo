@@ -69,17 +69,6 @@ extension NetworkViewModel {
                     }
                 }, receiveValue: { [weak self] decodable in
                     self?.response.send(.success(decodable))
-//                    if let status = (decodable as? BaseDataProtocol)?.status {
-//                        if status == 2001 {
-//                            self?.getToken()
-//                        } else if status == 2004 {
-//                            self?.response.send(.failure("Username or password is not valid."))
-//                        } else if let errorMessage = (decodable as? BaseDataProtocol)?.CheckError() {
-//                            self?.response.send(.failure(errorMessage))
-//                        } else {
-//                            self?.response.send(.success(decodable))
-//                        }
-//                    }
                 })
                 .store(in: &bag)
         } else {
