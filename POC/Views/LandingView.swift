@@ -1,15 +1,24 @@
-//
-//  LandingView.swift
-//  POC
-//
-//  Created by vinodh kumar on 21/06/22.
-//
 
 import SwiftUI
 
 struct LandingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: HomeView()) {
+                        Image("menu")
+                    }
+                }
+                .padding()
+                .background(.white)
+            }
+            .background(Color(red: 0.96, green: 0.96, blue: 0.96, opacity: 1))
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
     }
 }
 
@@ -18,3 +27,4 @@ struct LandingView_Previews: PreviewProvider {
         LandingView()
     }
 }
+

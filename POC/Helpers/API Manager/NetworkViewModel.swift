@@ -1,9 +1,4 @@
-//
-//  NetworkViewModel.swift
-//  GenericNetworking
-//
-//  Created by vino on 01/02/22.
-//
+
 
 import Foundation
 import Combine
@@ -63,63 +58,32 @@ extension NetworkViewModel {
                         print(error)
                         switch error {
                         case .decoding(_):
-                            self?.response.send(.failure(Constants.NetworkViewModel.Name.decodingError))
+                            self?.response.send(.failure("Decoding Error"))
                         case .networking(let err):
                             self?.response.send(.failure(err.localizedDescription))
                         case .endpointError:
-                            self?.response.send(.failure(Constants.NetworkViewModel.Name.invalidUrl))
+                            self?.response.send(.failure("invalidUrl"))
                         }
                     case .finished:
                         break
                     }
                 }, receiveValue: { [weak self] decodable in
-                    if let status = (decodable as? BaseDataProtocol)?.status {
-                        if status == 2001 {
-                            self?.getToken()
-                        } else if status == 2004 {
-                            self?.response.send(.failure("Username or password is not valid."))
-                        } else if let errorMessage = (decodable as? BaseDataProtocol)?.CheckError() {
-                            self?.response.send(.failure(errorMessage))
-                        } else {
-                            self?.response.send(.success(decodable))
-                        }
-                    }
-                    
+                    self?.response.send(.success(decodable))
+//                    if let status = (decodable as? BaseDataProtocol)?.status {
+//                        if status == 2001 {
+//                            self?.getToken()
+//                        } else if status == 2004 {
+//                            self?.response.send(.failure("Username or password is not valid."))
+//                        } else if let errorMessage = (decodable as? BaseDataProtocol)?.CheckError() {
+//                            self?.response.send(.failure(errorMessage))
+//                        } else {
+//                            self?.response.send(.success(decodable))
+//                        }
+//                    }
                 })
                 .store(in: &bag)
         } else {
-            self.response.send(.failure(Constants.NetworkViewModel.Name.emptyRequest))
-        }
-    }
-    
-    
-    func getToken() {
-        let ticketService = TicketService()
-        if let _request = ticketService.getTicketRequest() {
-            URLSession.shared.publisher(for: _request)
-                .receive(on: DispatchQueue.main)
-                .sink(receiveCompletion: { [weak self]  completion in
-                    switch completion {
-                    case .failure(let error):
-                        print(error)
-                        switch error {
-                        case .decoding(_), .endpointError:
-                            self?.response.send(.failure("Server Error"))
-                        case .networking(let err):
-                            self?.response.send(.failure(err.localizedDescription))
-                        }
-                    case .finished:
-                        break
-                    }
-                }, receiveValue: { [weak self] decodable in
-                    UserDefaults.ticket = decodable.ticket
-                    if let ticket = UserDefaults.ticket {
-                        self?.request?.updateTicket(ticket: ticket)
-                        self?.fetch()
-                    } else {
-                        self?.response.send(.failure("Server Error"))
-                    }
-                }).store(in: &bag)
+            self.response.send(.failure("emptyRequest"))
         }
     }
     

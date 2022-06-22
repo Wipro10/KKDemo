@@ -1,8 +1,13 @@
-//
-//  Profile.swift
-//  POC
-//
-//  Created by vinodh kumar on 21/06/22.
-//
 
 import Foundation
+
+// MARK: - Profile
+struct ProfileData: Codable {
+    let success: Bool
+    let data: Profile
+}
+
+// MARK: - DataClass
+struct Profile: Codable {
+    let title, message: String
+}
