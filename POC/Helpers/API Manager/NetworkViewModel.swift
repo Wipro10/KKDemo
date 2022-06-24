@@ -40,7 +40,7 @@ extension NetworkViewModel {
             self.fetchRequest()
         case .notConnected, .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet, .connectedViaEthernetWithoutInternet:
             print("No connection.")
-            self.response.send(.failure("No Internet Connection"))
+            self.response.send(.failure(NSLocalizedString(Constants.noInternet, comment: "")))
         case .determining:
             break
         }

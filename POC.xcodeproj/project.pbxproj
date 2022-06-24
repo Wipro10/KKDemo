@@ -32,6 +32,7 @@
 		7341EF1F28622E9E003DFB24 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7341EF1E28622E9E003DFB24 /* Profile.swift */; };
 		7341EF2128622F9F003DFB24 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7341EF2028622F9F003DFB24 /* HomeViewModel.swift */; };
 		7341EF24286230C0003DFB24 /* Connectivity in Frameworks */ = {isa = PBXBuildFile; productRef = 7341EF23286230C0003DFB24 /* Connectivity */; };
+		B0D35FB22864A50F009DEE9B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D35FB12864A50F009DEE9B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		7341EF1928622E30003DFB24 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		7341EF1E28622E9E003DFB24 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7341EF2028622F9F003DFB24 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B0D35FB12864A50F009DEE9B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				7341EF1928622E30003DFB24 /* Endpoint.swift */,
 				7341EF1828622E30003DFB24 /* NetworkViewModel.swift */,
 				7341EF1728622E30003DFB24 /* ResponseState.swift */,
+				B0D35FB12864A50F009DEE9B /* Constants.swift */,
 			);
 			path = "API Manager";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7341EEE62861F504003DFB24 /* HomeView.swift in Sources */,
+				B0D35FB22864A50F009DEE9B /* Constants.swift in Sources */,
 				7341EF1628622E26003DFB24 /* APIService.swift in Sources */,
 				7341EF1C28622E30003DFB24 /* Endpoint.swift in Sources */,
 				7341EF2128622F9F003DFB24 /* HomeViewModel.swift in Sources */,

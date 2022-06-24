@@ -25,13 +25,11 @@ class HomeViewModel: ObservableObject {
             case .loading:
                 self.isLoading = true
             case .success(let value):
-                print(value)
                 self.isLoading = false
                 self.isProfileCompleted = true
                 self.title = value.data.title
                 self.message = value.data.message
             case .failure(let value):
-                print(value)
                 self.isLoading = false
                 self.alertMessage = value
                 self.isShowAlert = true

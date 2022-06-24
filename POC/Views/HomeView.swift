@@ -9,10 +9,10 @@ struct TopBar: View {
         HStack {
             Image("profileIconSmall")
             VStack(alignment: .leading) {
-                Text("ESSEXLAD")
-                    .font(.custom("BebasNeue-Regular", size: 19))
-                Text("View and edit profile")
-                    .font(.custom("Lato-Regular", size: 13))
+                Text(NSLocalizedString(Constants.essexlad, comment: ""))
+                    .font(.custom(FontConstants.bebasNeueRegular, size: 19))
+                Text(NSLocalizedString(Constants.viewAndEditProfile, comment: ""))
+                    .font(.custom(FontConstants.latoRegular, size: 13))
             }
             Spacer()
             ZStack {
@@ -33,17 +33,17 @@ struct VerifyView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Get Verified")
-                    .font(.custom("BebasNeue-Regular", size: 39))
-                Text("Become a trusted member of the kommunity and start interacting")
-                    .font(.custom("Lato-Regular", size: 13))
+                Text(NSLocalizedString(Constants.getVerified, comment: ""))
+                    .font(.custom(FontConstants.bebasNeueRegular, size: 39))
+                Text(NSLocalizedString(Constants.becomeTrusted, comment: ""))
+                    .font(.custom(FontConstants.latoRegular, size: 13))
                 Button(action: {
 
                 }) {
                     HStack {
                         Image("warning")
-                        Text("Verify now")
-                            .font(.custom("Lato-Bold", size: 14))
+                        Text(NSLocalizedString(Constants.verifyNow, comment: ""))
+                            .font(.custom(FontConstants.latoBold, size: 14))
                     }
                 }
                 .padding(.vertical, 10)
@@ -56,6 +56,7 @@ struct VerifyView: View {
                 .frame(width: 100)
                 .padding(.trailing, 16)
         }
+        .frame(maxWidth: .infinity)
         .padding(.top, 4)
         .padding(.horizontal)
         .background(.white)
@@ -80,16 +81,16 @@ struct ProfileView: View {
                 VStack(alignment: .leading) {
                     Text(viewModel.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.custom("BebasNeue-Regular", size: 29))
+                        .font(.custom(FontConstants.bebasNeueRegular, size: 29))
                     Text(viewModel.message)
-                        .font(.custom("Lato-Regular", size: 13))
+                        .font(.custom(FontConstants.latoRegular, size: 13))
                 }
                 Spacer(minLength: 0)
             }
             Button(action: {
                 viewModel.completeProfile()
             }, label: {
-                Text(viewModel.isProfileCompleted ? "Success!" : "Let’s get it done")
+                Text(viewModel.isProfileCompleted ? NSLocalizedString(Constants.success, comment: "") : NSLocalizedString(Constants.letsGetIt, comment: ""))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
@@ -125,26 +126,27 @@ struct EventsView: View {
     
     var body: some View {
         ZStack {
+            Image("eventsbg")
+                .resizable()
             HStack {
                 Spacer()
                 Image("AmeliaxKittens")
             }
+            .frame(maxWidth: .infinity)
             HStack {
                 VStack(alignment: .leading) {
-                    Text("EVENTS & E-TICKETS")
+                    Text(NSLocalizedString(Constants.events, comment: ""))
                         .foregroundColor(.white)
-                        .font(.custom("BebasNeue-Regular", size: 39))
-                    Text("Buy and access your party and workshop tickets")
+                        .font(.custom(FontConstants.bebasNeueRegular, size: 39))
+                    Text(NSLocalizedString(Constants.buyAndAccess, comment: ""))
                         .foregroundColor(.white)
-                        .font(.custom("Lato-Regular", size: 13))
+                        .font(.custom(FontConstants.latoRegular, size: 13))
                 }
                 Spacer(minLength: 150)
             }
+            .frame(maxWidth: .infinity)
             .padding()
-
         }
-        .background(Image("eventsbg"))
-        .frame(maxWidth: .infinity)
         .cornerRadius(20)
         .shadow(color: Color(red: 0.451, green: 0.541, blue: 0.612, opacity: 0.08), radius: 15)
         .padding(.horizontal)
@@ -160,8 +162,8 @@ struct AccountSettings: View {
             .overlay(Circle().strokeBorder(Color(red: 175, green: 181, blue: 191, opacity: 0.45)))
             .overlay(Image("accountSetting"))
             .frame(width: 35, height: 35)
-            Text("ACCOUNT SETTINGS")
-                .font(.custom("BebasNeue-Regular", size: 20))
+            Text(NSLocalizedString(Constants.accountSettings, comment: ""))
+                .font(.custom(FontConstants.bebasNeueRegular, size: 20))
             Spacer()
         }
         .padding(.horizontal, 20)
@@ -178,8 +180,8 @@ struct Logout: View {
             .overlay(Circle().strokeBorder(Color(red: 175, green: 181, blue: 191, opacity: 0.45)))
             .overlay(Image("logoutvector"))
             .frame(width: 35, height: 35)
-            Text("LOGOUT")
-                .font(.custom("BebasNeue-Regular", size: 20))
+            Text(NSLocalizedString(Constants.logout, comment: ""))
+                .font(.custom(FontConstants.bebasNeueRegular, size: 20))
             Spacer()
         }
         .padding(.horizontal, 20)
@@ -218,7 +220,7 @@ struct HomeView: View {
             }
             .background(Color(red: 0.96, green: 0.96, blue: 0.96, opacity: 1))
             .alert(viewModel.alertMessage, isPresented: $viewModel.isShowAlert) {
-                Button("OK", role: .cancel) { }
+                Button(NSLocalizedString(Constants.OK, comment: ""), role: .cancel) { }
             }
             if viewModel.isLoading {
                 ZStack {
